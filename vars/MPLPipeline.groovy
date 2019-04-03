@@ -1,3 +1,4 @@
+
 //
 // Copyright (c) 2018 Grid Dynamics International, Inc. All Rights Reserved
 // https://www.griddynamics.com
@@ -33,6 +34,7 @@ def call(body) {
     modules: [
       Checkout: [:],
       Build: [:],
+      Junit: [:],
       Deploy: [:],
       Test: [:]
     ]
@@ -53,6 +55,13 @@ def call(body) {
         }
       }
       stage( 'Build' ) {
+        when { expression { MPLModuleEnabled() } }
+        steps {
+          MPLModule()
+        }
+      }
+      
+      stage( 'Junit' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
