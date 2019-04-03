@@ -34,7 +34,6 @@ def call(body) {
     modules: [
       Checkout: [:],
       Build: [:],
-      Junit: [:],
       Deploy: [:],
       Test: [:]
     ]
@@ -61,24 +60,14 @@ def call(body) {
         }
       }
       
-      stage( 'Junit' ) {
-        when { expression { MPLModuleEnabled() } }
-        steps {
-          MPLModule()
-        }
-      }
+
       stage( 'Deploy' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
         }
       }
-      stage( 'Test' ) {
-        when { expression { MPLModuleEnabled() } }
-        steps {
-          MPLModule()
-        }
-      }
+
     }
     post {
       always {
