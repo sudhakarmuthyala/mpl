@@ -34,8 +34,7 @@ def call(body) {
     modules: [
       Checkout: [:],
       Build: [:],
-      Deploy: [:],
-      Test: [:]
+      Deploy: [:]
     ]
   ])
 
