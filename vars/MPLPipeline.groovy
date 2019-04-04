@@ -34,6 +34,7 @@ def call(body) {
     modules: [
       Checkout: [:],
       Build: [:],
+      Build1: [:],
       Deploy: [:]
     ]
   ])
@@ -58,7 +59,13 @@ def call(body) {
           MPLModule()
         }
       }
-      
+
+      stage( 'Build1' ) {
+        when { expression { MPLModuleEnabled() } }
+        steps {
+          MPLModule()
+        }
+      }
 
       stage( 'Deploy' ) {
         when { expression { MPLModuleEnabled() } }
