@@ -1,4 +1,4 @@
-i@Library('mpl@release') _
+@Library('mpl@release') _
 MPLPipeline {}
 
 node {
