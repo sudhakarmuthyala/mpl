@@ -2,24 +2,14 @@
 MPLPipeline {}
 
 node {
-  stage( 'Application Checkout' ) {
-    MPLModule('Checkout')
-  }
-  stage( 'Build' ) {
-    MPLModule()
-  }
+  
   stage( 'Post' ) {
 	  
-     junit 'target/surefire-reports/*.xml'	  
-	  
+     junit 'target/surefire-reports/*.xml'	    
     
   }
   
-  stage ( 'Deploy') {
-    MPLModule()	
- }		
-	
-  stage( 'Test' ) {
+   stage( 'Test' ) {
     MPLModule()
   }
 	
@@ -27,8 +17,4 @@ node {
 
 
 
-/* node {
-stage('Post') {
-	       junit 'target/surefire-reports/*.xml'
-              }
- }*/
+
