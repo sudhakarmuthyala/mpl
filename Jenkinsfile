@@ -13,10 +13,17 @@ node {
 	  
     
   }
+  
+  stage ( 'Deploy') {
+    MPLModule()	
+ }		
+	
   stage( 'Test' ) {
     MPLModule()
   }
+	
 }
+
 
 
 /* node {
