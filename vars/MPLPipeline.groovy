@@ -35,7 +35,8 @@ def call(body) {
       Checkout: [:],
       Build: [:],
       Post: [:],
-      Deploy: [:]
+      Deploy: [:],
+      Sample: [:]
     ]
   ])
 
@@ -53,14 +54,14 @@ def call(body) {
           MPLModule()
         }
       }
-      stage( 'Post' ) {
+      stage( 'Build' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
         }
-      }
+       }
 
-      stage( 'Build' ) {
+      stage( 'Post' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
@@ -74,7 +75,15 @@ def call(body) {
         }
       }
 
+      stage 'Sample'
+       when { expression { MPLModuleEnabled() } }
+        steps {
+          MPLModule()
+        }
+      }
+
     }
+
     post {
       always {
         MPLPostStepsRun('always')
