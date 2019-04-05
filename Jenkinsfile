@@ -8,11 +8,7 @@ node {
      junit 'target/surefire-reports/*.xml'	    
     
   }
-  
-   stage( 'Sample' ) {
-    echo "Print the message"
-  }
-	
+  	
 }
 
 
