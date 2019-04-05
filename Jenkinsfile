@@ -1,6 +1,6 @@
 @Library('mpl@release') _
 
-node( 'LS' ) {
+node {
   stage( 'Application Checkout' ) {
     MPLModule('Checkout')
   }
