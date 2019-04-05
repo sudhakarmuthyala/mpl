@@ -1,4 +1,5 @@
 @Library('mpl@release') _
+MPLPipeline {}
 
 node {
   stage( 'Application Checkout' ) {
