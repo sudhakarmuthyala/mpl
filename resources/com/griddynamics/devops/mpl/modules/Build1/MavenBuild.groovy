@@ -8,7 +8,7 @@
 
   sh """mvn -B ${settings} -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean ""
 
-  echo "sample clean workspace"
+  
 
 }
 
