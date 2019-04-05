@@ -1,8 +1,8 @@
 @Library('mpl@release') _
 
 MPLPipeline {}
-node {
+/* node {
 stage('Post') {
 	       junit 'target/surefire-reports/*.xml'
               }
- }
+ }*/
