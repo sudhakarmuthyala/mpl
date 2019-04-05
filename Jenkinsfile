@@ -10,7 +10,7 @@ node {
   }
   
    stage( 'Sample' ) {
-    MPLModule()
+    echo "Print the message"
   }
 	
 }
