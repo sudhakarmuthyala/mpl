@@ -53,14 +53,14 @@ def call(body) {
           MPLModule()
         }
       }
-      stage( 'Build' ) {
+      stage( 'Build1' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
         }
       }
 
-      stage( 'Build1' ) {
+      stage( 'Build' ) {
         when { expression { MPLModuleEnabled() } }
         steps {
           MPLModule()
