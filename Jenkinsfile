@@ -1,4 +1,4 @@
-@Library('mpl@release') _
+i@Library('mpl@release') _
 MPLPipeline {}
 
 node {
@@ -9,7 +9,7 @@ node {
     
   }
   
-   stage( 'Test' ) {
+   stage( 'Sample' ) {
     MPLModule()
   }
 	
