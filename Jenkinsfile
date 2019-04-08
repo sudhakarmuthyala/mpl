@@ -3,7 +3,7 @@ MPLPipeline {}
 
 node {
   
-  stage( 'Post' ) {
+  stage( 'Junit' ) {
 	  
      junit 'target/surefire-reports/*.xml'	    
     
