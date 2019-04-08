@@ -1,0 +1,237 @@
+Started by user Sudhakar
+Obtained Jenkinsfile from git https://github.com/sudhakarmuthyala/mpl.git
+Running in Durability level: MAX_SURVIVABILITY
+Loading library mpl@release
+Attempting to resolve release from remote references...
+ > git --version # timeout=10
+ > git ls-remote -h https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Could not find release in remote references. Pulling heads to local for deep search...
+ > git rev-parse --is-inside-work-tree # timeout=10
+Setting origin to https://github.com/sudhakarmuthyala/mpl.git
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git --version # timeout=10
+ > git config --get remote.origin.url # timeout=10
+ > git fetch --tags --progress origin +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse release^{commit} # timeout=10
+ > git branch -a -v --no-abbrev --contains ddf014b15c8c32c665d1cec6021a357c9209cd32 # timeout=10
+Selected match: patch-1 revision ddf014b15c8c32c665d1cec6021a357c9209cd32
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/sudhakarmuthyala/mpl.git
+ > git --version # timeout=10
+ > git fetch --no-tags --progress https://github.com/sudhakarmuthyala/mpl.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision ddf014b15c8c32c665d1cec6021a357c9209cd32 (patch-1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ddf014b15c8c32c665d1cec6021a357c9209cd32
+Commit message: "MPL-1 mergeMaps will process every value in overlay (#7)"
+ > git rev-list --no-walk ddf014b15c8c32c665d1cec6021a357c9209cd32 # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/mpl_sample5
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching upstream changes from https://github.com/sudhakarmuthyala/mpl.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/sudhakarmuthyala/mpl.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision a5202134e4d063082524a21731528c85656d06a7 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a5202134e4d063082524a21731528c85656d06a7
+Commit message: "Edited jenkins file6"
+ > git rev-list --no-walk 6f6d3c0e1a40d6076eb8f44e600ca0ada09b7479 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] tool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn -B -DargLine=-Xmx1024m -XX:MaxPermSize=1024m clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.griddynamics.devops:mpl >---------------------
+[INFO] Building Modular Pipeline Library 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ mpl ---
+[INFO] Deleting /var/lib/jenkins/workspace/mpl_sample5/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (copy-test-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addTestSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateStubs.
+[INFO] Generated 15 stubs.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/mpl_sample5/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mpl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /var/lib/jenkins/workspace/mpl_sample5/target/classes
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:compile (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform compile.
+[INFO] Compiled 25 files.
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateTestStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateTestStubs.
+[INFO] Generated 3 stubs.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/mpl_sample5/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mpl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/lib/jenkins/workspace/mpl_sample5/target/test-classes
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:compileTests (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform compileTests.
+[INFO] Compiled 21 files.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mpl ---
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/mpl_sample5/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1024m; support was removed in 8.0
+Running BuildTest
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build, {maven={tool_version=Maven 2}})
+      Build.run()
+         Build.MPLModule(Maven Build, {maven.tool_version=Maven 2})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 2)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 2_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B  -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build, {maven={settings_path=/test-settings.xml}})
+      Build.run()
+         Build.MPLModule(Maven Build, {maven.settings_path=/test-settings.xml})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 3)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 3_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B -s '/test-settings.xml' -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build)
+      Build.run()
+         Build.MPLModule(Maven Build, {})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 3)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 3_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B  -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.436 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mpl ---
+[INFO] Building jar: /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (attach-sources) > generate-sources @ mpl >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (copy-test-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addTestSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateStubs.
+[INFO] Generated 15 stubs.
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (attach-sources) < generate-sources @ mpl <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (attach-sources) @ mpl ---
+[INFO] Building jar: /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ mpl ---
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT.jar to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT.jar
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/pom.xml to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT.pom
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT-sources.jar to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.252 s
+[INFO] Finished at: 2019-04-05T11:34:31Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] fileExists
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] echo
+Executing Openshift Deploy process
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] fileExists
+[Pipeline] echo
+[agent_label:]
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+OpenShift Deploy Decomission poststep
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/mpl_sample5
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Post)
+[Pipeline] junit
+Recording test results
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Sample)
+[Pipeline] echo
+Print the message
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

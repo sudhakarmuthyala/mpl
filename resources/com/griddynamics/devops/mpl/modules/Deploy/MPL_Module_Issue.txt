@@ -1,0 +1,295 @@
+Started by user Sudhakar
+Obtained Jenkinsfile from git https://github.com/sudhakarmuthyala/mpl.git
+Running in Durability level: MAX_SURVIVABILITY
+Loading library mpl@release
+Attempting to resolve release from remote references...
+ > git --version # timeout=10
+ > git ls-remote -h https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Could not find release in remote references. Pulling heads to local for deep search...
+ > git rev-parse --is-inside-work-tree # timeout=10
+Setting origin to https://github.com/sudhakarmuthyala/mpl.git
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git --version # timeout=10
+ > git config --get remote.origin.url # timeout=10
+ > git fetch --tags --progress origin +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse release^{commit} # timeout=10
+ > git branch -a -v --no-abbrev --contains ddf014b15c8c32c665d1cec6021a357c9209cd32 # timeout=10
+Selected match: master revision ddf014b15c8c32c665d1cec6021a357c9209cd32
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/sudhakarmuthyala/mpl.git
+ > git --version # timeout=10
+ > git fetch --no-tags --progress https://github.com/sudhakarmuthyala/mpl.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision ddf014b15c8c32c665d1cec6021a357c9209cd32 (master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ddf014b15c8c32c665d1cec6021a357c9209cd32
+Commit message: "MPL-1 mergeMaps will process every value in overlay (#7)"
+ > git rev-list --no-walk ddf014b15c8c32c665d1cec6021a357c9209cd32 # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/mpl_sample5
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/sudhakarmuthyala/mpl.git # timeout=10
+Fetching upstream changes from https://github.com/sudhakarmuthyala/mpl.git
+ > git --version # timeout=10
+ > git fetch --tags --progress https://github.com/sudhakarmuthyala/mpl.git +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision e95459fda5fe8c219dccaacfe941f19a6df70abc (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f e95459fda5fe8c219dccaacfe941f19a6df70abc
+Commit message: "Sample file content removed"
+ > git rev-list --no-walk 6f6d3c0e1a40d6076eb8f44e600ca0ada09b7479 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] tool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ mvn -B -DargLine=-Xmx1024m -XX:MaxPermSize=1024m clean install
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.griddynamics.devops:mpl >---------------------
+[INFO] Building Modular Pipeline Library 1.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ mpl ---
+[INFO] Deleting /var/lib/jenkins/workspace/mpl_sample5/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (copy-test-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addTestSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateStubs.
+[INFO] Generated 15 stubs.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/mpl_sample5/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ mpl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 15 source files to /var/lib/jenkins/workspace/mpl_sample5/target/classes
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:compile (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform compile.
+[INFO] Compiled 25 files.
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateTestStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateTestStubs.
+[INFO] Generated 3 stubs.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/mpl_sample5/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ mpl ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/lib/jenkins/workspace/mpl_sample5/target/test-classes
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:compileTests (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform compileTests.
+[INFO] Compiled 21 files.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ mpl ---
+[INFO] Surefire report directory: /var/lib/jenkins/workspace/mpl_sample5/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+OpenJDK 64-Bit Server VM warning: ignoring option MaxPermSize=1024m; support was removed in 8.0
+Running BuildTest
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build, {maven={tool_version=Maven 2}})
+      Build.run()
+         Build.MPLModule(Maven Build, {maven.tool_version=Maven 2})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 2)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 2_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B  -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build, {maven={settings_path=/test-settings.xml}})
+      Build.run()
+         Build.MPLModule(Maven Build, {maven.settings_path=/test-settings.xml})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 3)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 3_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B -s '/test-settings.xml' -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Loading shared library mpl with version snapshot
+   MPLModule.call(Build)
+      Build.run()
+         Build.MPLModule(Maven Build, {})
+            MavenBuild.run()
+               MavenBuild.tool(Maven 3)
+               MavenBuild.withEnv([PATH+MAVEN=Maven 3_HOME/bin], groovy.lang.Closure)
+                  MavenBuild.sh(mvn -B  -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install)
+         Build.fileExists(openshift)
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.102 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mpl ---
+[INFO] Building jar: /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:3.0.1:jar (attach-sources) > generate-sources @ mpl >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (copy-test-resources) @ mpl ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 24 resources
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:addTestSources (default) @ mpl ---
+[INFO] 
+[INFO] --- gmavenplus-plugin:1.6.2:generateStubs (default) @ mpl ---
+[INFO] Using Groovy 2.4.12 to perform generateStubs.
+[INFO] Generated 15 stubs.
+[INFO] 
+[INFO] <<< maven-source-plugin:3.0.1:jar (attach-sources) < generate-sources @ mpl <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-source-plugin:3.0.1:jar (attach-sources) @ mpl ---
+[INFO] Building jar: /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.4:install (default-install) @ mpl ---
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT.jar to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT.jar
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/pom.xml to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT.pom
+[INFO] Installing /var/lib/jenkins/workspace/mpl_sample5/target/mpl-1.0.0-SNAPSHOT-sources.jar to /var/lib/jenkins/.m2/repository/com/griddynamics/devops/mpl/1.0.0-SNAPSHOT/mpl-1.0.0-SNAPSHOT-sources.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.180 s
+[INFO] Finished at: 2019-04-05T11:25:30Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] fileExists
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] echo
+Executing Openshift Deploy process
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] fileExists
+[Pipeline] echo
+[agent_label:]
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+OpenShift Deploy Decomission poststep
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/mpl_sample5
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Post)
+[Pipeline] junit
+Recording test results
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Sample)
+[Pipeline] fileExists
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+com.griddynamics.devops.mpl.MPLModuleException: Unable to find not active module to execute:  -X> modules/Sample/Sample.groovy
+	at MPLModule.call(/var/lib/jenkins/jobs/mpl_sample5/builds/55/libs/mpl/vars/MPLModule.groovy:66)
+	at WorkflowScript.run(WorkflowScript:13)
+	at ___cps.transform___(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:83)
+	at org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:77)
+	at org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:60)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:235)
+	at com.cloudbees.groovy.cps.sandbox.DefaultInvoker.constructorCall(DefaultInvoker.java:25)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:96)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor213.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:103)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor213.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ContinuationGroup.methodCall(ContinuationGroup.java:60)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.dispatchOrArg(FunctionCallBlock.java:109)
+	at com.cloudbees.groovy.cps.impl.FunctionCallBlock$ContinuationImpl.fixArg(FunctionCallBlock.java:82)
+	at sun.reflect.GeneratedMethodAccessor213.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.cloudbees.groovy.cps.impl.ContinuationPtr$ContinuationImpl.receive(ContinuationPtr.java:72)
+	at com.cloudbees.groovy.cps.impl.ConstantBlock.eval(ConstantBlock.java:21)
+	at com.cloudbees.groovy.cps.Next.step(Next.java:83)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:174)
+	at com.cloudbees.groovy.cps.Continuable$1.call(Continuable.java:163)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:129)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:268)
+	at com.cloudbees.groovy.cps.Continuable.run0(Continuable.java:163)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.access$101(SandboxContinuable.java:34)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.lambda$run0$0(SandboxContinuable.java:59)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.GroovySandbox.runInSandbox(GroovySandbox.java:121)
+	at org.jenkinsci.plugins.workflow.cps.SandboxContinuable.run0(SandboxContinuable.java:58)
+	at org.jenkinsci.plugins.workflow.cps.CpsThread.runNextChunk(CpsThread.java:182)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.run(CpsThreadGroup.java:332)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup.access$200(CpsThreadGroup.java:83)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:244)
+	at org.jenkinsci.plugins.workflow.cps.CpsThreadGroup$2.call(CpsThreadGroup.java:232)
+	at org.jenkinsci.plugins.workflow.cps.CpsVmExecutorService$2.call(CpsVmExecutorService.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at hudson.remoting.SingleLaneExecutorService$1.run(SingleLaneExecutorService.java:131)
+	at jenkins.util.ContextResettingExecutorService$1.run(ContextResettingExecutorService.java:28)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:59)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Finished: FAILURE
