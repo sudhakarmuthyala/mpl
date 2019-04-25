@@ -9,7 +9,7 @@
 
     <name>Modular Pipeline Library</name>
     <description>Jenkins Pipeline engine shared library allow to use steps modules and properly test them</description>
-    <url>https://github.com/griddynamics/mpl</url>
+    <url>https://github.com/sudhakarmuthyala/mpl.git</url>
 
     <organization>
         <name>Grid Dynamics</name>
