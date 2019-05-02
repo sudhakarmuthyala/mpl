@@ -27,7 +27,7 @@ node {
 	
 	  stage ('Maven clean install') {
 
-             def mvnHome = tool name: 'M3', type: 'maven'
+             def mvnHome = tool name: 'Maven 3', type: 'maven'
     
              def mvnCMD = '${mvnHome}/bin/mvn'
 		  
