@@ -19,8 +19,7 @@ node {
        
      stage ('SCM Checkout') { 
         
-  
-          url: 'git 'https://github.com/sudhakarmuthyala/mpl.git''
+  git credentialsId: 'b6163257-12f7-45af-bcd4-e96b3261e010', url: 'https://github.com/sudhakarmuthyala/mpl.git'
 
 
               }
@@ -38,7 +37,7 @@ node {
               }  
 	
 }
-}
+
 
 
 }
