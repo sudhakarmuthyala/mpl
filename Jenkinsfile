@@ -17,22 +17,15 @@ node {
 
 node {
 
-stage ('Maven clean install') {
-
+         def mvnHome = tool name: 'M3', type: 'maven'
+    
+         def mvnCMD = "${mvnHome}\bin\mvn"
+		 
+		  stage ('Maven clean install') {
       
-
-  withEnv(["PATH+MAVEN=${tool(CFG.'maven.tool_version' ?: 'Maven 3')}\bin"]) {
-
-
-
-  def settings = CFG.'maven.settings_path' ? "-s '${CFG.'maven.settings_path'}'" : ''
-
-
-
-  bat """mvn -B ${settings} -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install"""
-  
-  }
-  }
+        bat "${mvnCMD} clean install"
+      
+              } 
 
 
   stage( 'Post' ) {
