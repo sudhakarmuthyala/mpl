@@ -19,11 +19,11 @@ node {
 
          def mvnHome = tool name: 'M3', type: 'maven'
     
-         def mvnCMD = "${mvnHome}\bin\mvn"
+         def mvnCMD = '${mvnHome}\bin\mvn'
 		 
 		  stage ('Maven clean install') {
       
-        bat "${mvnCMD} clean install"
+        bat '${mvnCMD} clean install'
       
               } 
 
