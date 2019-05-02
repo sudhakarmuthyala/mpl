@@ -16,14 +16,22 @@ node {
 
 
 node {
+	
+	 stage ('SCM Checkout') { 
+        
+  
+            git url: 'https://github.com/sudhakarmuthyala/mpl.git'
 
-         def mvnHome = tool name: 'M3', type: 'maven'
+
+              }
+	
+	  stage ('Maven clean install') {
+
+             def mvnHome = tool name: 'M3', type: 'maven'
     
-         def mvnCMD = '${mvnHome}\bin\mvn'
-		 
-		  stage ('Maven clean install') {
-      
-        bat '${mvnCMD} clean install'
+             def mvnCMD = '${mvnHome}/bin/mvn'
+		  
+             bat '${mvnCMD} clean install'
       
               } 
 
