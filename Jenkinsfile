@@ -11,13 +11,12 @@ node {
   	
 }*/
 
+
+
+
+
 node { 
- 
-         def mvnHome = tool name: 'M3', type: 'maven'
-    
-         def mvnCMD = "${mvnHome}\bin\mvn"
-         
-    
+       
      stage ('SCM Checkout') { 
         
   
@@ -26,16 +25,22 @@ node {
 
               }
     
-  
-           
-        stage ('Maven clean install') {
+       
+    stage ('Maven clean install') {
       
-        sh "${mvnCMD} clean install"
+  withEnv(["PATH+MAVEN=${tool(CFG.'maven.tool_version' ?: 'Maven 3')}\bin"]) {
+
+  def settings = CFG.'maven.settings_path' ? "-s '${CFG.'maven.settings_path'}'" : ''
+
+  bat """mvn -B ${settings} -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install"""
+
       
               }  
 	
 }
+}
 
 
+}
 
 
