@@ -12,34 +12,35 @@ node {
 }*/
 
 
+@Library('mpl@release') _
 
 
+node {
 
-node { 
-       
-     stage ('SCM Checkout') { 
-        
-  git credentialsId: 'b6163257-12f7-45af-bcd4-e96b3261e010', url: 'https://github.com/sudhakarmuthyala/mpl.git'
+stage ('Maven clean install') {
 
-
-              }
-    
-       
-    stage ('Maven clean install') {
       
+
   withEnv(["PATH+MAVEN=${tool(CFG.'maven.tool_version' ?: 'Maven 3')}\bin"]) {
+
+
 
   def settings = CFG.'maven.settings_path' ? "-s '${CFG.'maven.settings_path'}'" : ''
 
+
+
   bat """mvn -B ${settings} -DargLine='-Xmx1024m -XX:MaxPermSize=1024m' clean install"""
-
-      
-              }  
-	
-}
+  
+  }
+  }
 
 
+  stage( 'Post' ) {
 
-}
+     junit 'target/surefire-reports/*.xml'
+
+  }
+
+  }
 
 
