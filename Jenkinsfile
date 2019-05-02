@@ -20,7 +20,7 @@ node {
      stage ('SCM Checkout') { 
         
   
-          url: 'git 'https://github.com/sudhakarmuthyala/mpl.git'
+          url: 'git 'https://github.com/sudhakarmuthyala/mpl.git''
 
 
               }
